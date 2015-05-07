@@ -10,8 +10,8 @@ def __main__():
     print "\n#########################################################################"
     print "#Bienvenido al programa de gestion de alergenos y ingredientes. \n#"
     print "#                       Escrito por Israel Perez Valero. \n########################################################################## \n"
-    print "1. Añadir productos al listado de ingredientes. \n"
-    print "ESC para terminar \n"
+    print "1. Añadir productos al listado de ingredientes. \n2. Crea un archivo con los Productos y alergenos.\n"
+    print "Teclea ESC en mayuscula para terminar... \n"
     eleccion = False
     while eleccion == False:
         eleccion = str(raw_input("Elige tu opcion: "))
@@ -19,6 +19,9 @@ def __main__():
             os.system('clear')
             eleccion = True
             listaIngredientes()
+        elif eleccion == "2":
+            os.system('clear')
+            listaAlergenos()
         elif eleccion == "ESC":
             os.system('clear')
             print "Gracias por usarme, hasta la proxima."
@@ -50,7 +53,7 @@ def listaIngredientes():
 
     fichero.close()
     print "gracias"
-    __main__()
+    pausa()
 
 def listaAlergenos():
     fileRead = open('Listadoingredientes.csv', "r")
@@ -62,6 +65,12 @@ def listaAlergenos():
     fileRead.close()
     fileWrite.close()
     print "Archivo creado correctamente.\n"
+    pausa()
+
+def pausa():
+    """Genera una pausa hasta que se pulse enter
+    y vuelve al main"""
+
     pausa2 = False
     while pausa2 == False:
         pausa = raw_input("Pulsa 'Enter' para continuar.....")
@@ -69,5 +78,3 @@ def listaAlergenos():
             pausa2 = True
     __main__()
 __main__()
-
-
